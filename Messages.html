@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Random Messaging</title>
+    </head>
+    <body>
+        <h1 style="color: green;">Random Messaging</h1>
+        <div id="displayMessage" style="width:100%; height:100px;background-color:grey;font-size:3em; color: blue;">Click for Message</div>
+        <script>
+            
+            window.onload = function() {
+                document.getElementById("displayMessage").addEventListener("click", generateMessage);
+            }
+
+            const startArr = ["The", "A"];
+            const adjArr = ["warm", "fast", "back", "older", "cold", "hairy", "large", "sleepy"];
+            const nounArr = ["car", "garden", "scarf", "weather", "sister", "meal" , "bird", "cat"];
+
+            function generateMessage() {
+                for (let i = 0; i<startArr.length; i++) {
+                    for (let j = 0; j<adjArr.length; j++){
+                        for (let k=0; k<nounArr.length; k++){
+                            let iIdx = parseInt(Math.random()*startArr.length);
+                            let jIdx = parseInt(Math.random()*adjArr.length);
+                            let kIdx = parseInt(Math.random()*nounArr.length);
+                            if (startArr[iIdx] != "undefined" && adjArr[jIdx] != "undefined" && nounArr[kIdx]!="undefined"){
+                                this.innerText = startArr[iIdx] + " " + adjArr[jIdx] + " " + nounArr[kIdx];
+                            }
+                            else throw new Error("Undefined error, please click again.")
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
